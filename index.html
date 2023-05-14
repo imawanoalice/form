@@ -3,33 +3,64 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
   <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0;  user-scalable=0;" name="viewport">
-  <title>FORM REGISTER</title>
+  <title>SIGN UP</title>
   <link rel="stylesheet" href="style.css">
+
+  <script src="sweetalert.min.js"></script>
 
    <!-- Font Awesome Cdn Link -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 
 <body width = "device-width">
-  <div class="wrapper">
-    <p>REGISTER FOR PLAY THE GAME</p>
-    <form>
-      <input type="text" placeholder="Enter username">
-      <input type="password" placeholder="Password">
-    <closeform></closeform></form>
-    <button>Sign in</button>
-    <p class="or">
-    <span>Or continue with</span>
-    </p>
-    <div class="icons">
-      <i class="fab fa-twitter"></i>
-      <i class="fab fa-facebook"></i>
-      <i class="fab fa-instagram"></i>
-    </div>
-    <div class="not-member">
-      Not a member? <a href="page 2.html">Register Now</a>
-    </div>
-  </div>
+<div class="wrapper">
+    <h1>SIGN UP</h1>
 
+    <form method="POST" name="submit-to-google-sheet">
+    <label>Where should we contact you for further inquiries?<br></label>
+      <input type="text" name="Where should we contact you for further inquiries?" placeholder="(Ex: twitter.com/ImawaNoAlice)" required><br>
+      <label>Would you kindly tell us your name?<br></label>
+      <input type="text" name="Would you kindly tell us your name?" placeholder="(Ex: Arisu Ryohei from Alice in Borderland)" required><br>
+        <label>List two alternative face claims you're<br>going to use should you not get accepted<br>on your first face claim.</label>   
+      <input type="text" name="List two alternative face claims you're going to use should you not get accepted on your first face claim." placeholder="Max. 2" required>
+        <p>Have your read our website?</p>   
+      <input type="text" name="Have your read our website?" placeholder="Yes or No" required>
+    <div class="inputfield">
+        <label> Would you like to betray or leave your friend behind in case of your accomplished game<br>and explain why?</label><br>
+        <textarea class="textarea"name="Would you like to betray or leave your friend behind in case of your accomplished game and explain why?" placeholder="(2500 characters at maximum and external links are prohibited)" required></textarea>
+    </div>
+    <label>If you are not admitted into the borders,<br>would you want to be put on our waiting list?<br></label>
+    <div class="select">
+        <select name="If you are not admitted into the borders, would you want to be put on our waiting list" id="Waiting-list">
+           <option selected disabled>Select</option>
+           <option value="Yes">Yes min</option>
+           <option value="No">No u_u</option>
+        </select>
+     </div><br>
+     <button id="submit" type="submit" name="submit">REGISTER</button></input>
+    </div>
+    </form>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyIgahYo8OZRNInde6MVntreKvivGmdVf3UPTbfMRFuSSPeETa9j_iiqF7PrFAFgSCPkw/exec'
+        const form = document.forms['submit-to-google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert('Great! Your data have submitted. Please waiting for the announcement, goodluck!'))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+
+      <script>
+        const textarea = document.querySelector("textarea");
+        textarea.addEventListener("keyup", e =>{
+          textarea.style.height = "63px";
+          let scHeight = e.target.scrollHeight;
+          textarea.style.height = `${scHeight}px`;
+        });
+      </script>
+</div>
 </body>
 </html>
