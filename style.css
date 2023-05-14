@@ -62,7 +62,7 @@ p{
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    position: absolute;
+    position: flex;
     top: -55px;
     left: calc(50% - 100px);
 }
@@ -155,7 +155,7 @@ a:hover{
 select {
    outline:0;
    box-shadow:none;
-   border:0!important;
+   border:0 !important;
    background: #dfe9f5;
    padding: 11px 124px;
    color:#757575;
