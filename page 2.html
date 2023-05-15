@@ -42,7 +42,7 @@
         form.addEventListener('submit', e => {
           e.preventDefault()
           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => alert('Great! Your data have submitted. Please waiting for the announcement, goodluck!'))
+            .then(response => alert('Great! Your data has been submitted. Please wait for the announcement, goodluck!'))
             .catch(error => console.error('Error!', error.message))
         })
       </script>
