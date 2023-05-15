@@ -193,5 +193,6 @@ textarea:is(:focus, :valid){
 
 
 .textarea::-webkit-scrollbar{
+  overflow-y: hidden;
   width: 0px;
 }
