@@ -194,4 +194,5 @@ textarea:is(:focus, :valid){
 
 .textarea::-webkit-scrollbar{
   width: 0px;
+  overflow-y: scroll;
 }
